@@ -54,6 +54,8 @@ promptUser().then(({ userName, favoriteColor }) => {
     const queryUrl = `https://api.github.com/users/${userName}`
     axios.get(queryUrl).then((resp) => {
         console.log(resp)
+        
+        
         fs.writeFile("hello.html", htmlTemplate(resp, favoriteColor), (err) => {
             if (err) {
                 console.log(err)
